@@ -91,7 +91,7 @@ class Text
         $len = strlen($this->text);
 		$tmp = "";
 		
-		for( $i = $len - 1; i >= 0; $i-- )
+		for( $i = $len - 1; $i >= 0; $i-- )
 		{
 			$tmp .= $this->text{$i};
 		}
