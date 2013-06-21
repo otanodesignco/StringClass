@@ -86,24 +86,17 @@ class Text
         } 
     } 
 
-    public function reverse($words = TRUE, $sep = ' ') 
+    public function reverse() 
     { 
-        $tmp; 
-
-        if($words == TRUE) 
-        { 
-            $tmp = explode($sep, $this->text); 
-            $tmp = array_reverse($tmp); 
-            $this->text = implode($sep, $tmp); 
-        } 
-        else if($words == FALSE) 
-        { 
-            $this->text = strrev($this->text); 
-        } 
-        else 
-        { 
-            $this->text = strrev($this->text); 
-        } 
+        $len = strlen($this->text);
+		$tmp = "";
+		
+		for( $i = $len - 1; i >= 0; $i-- )
+		{
+			$tmp .= $this->text{$i};
+		}
+		
+		$this->text = $tmp;
     } 
 
     public function combine($txt) 
@@ -149,20 +142,17 @@ class Text
         $this->text = str_replace($searchTxt, $replacement, $this->text); 
     } 
 
-    public function characters($len = 0) 
+    public function characters() 
     { 
-        $rtn; 
-
-        if($len > 0) 
-        { 
-            $rtn = str_split($this->text,$len); 
-        } 
-        else 
-        { 
-            $rtn = str_split($this->text); 
-        } 
-
-        return $rtn; 
+        $len = strlen($this->text);
+		$rtn;
+		
+		for( $i = 0; $i < $len; $i++)
+		{
+			$rtn[$i] = $this->text{$i};
+		} 
+		
+		return $rtn;
     } 
     public function slim($chars = null) 
     { 
