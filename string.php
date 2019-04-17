@@ -38,8 +38,7 @@ class Text
 
     public function length() 
     { 
-        $rtn = strlen($this->text); 
-        return $rtn; 
+       return strlen($this->text);  
     } 
 
     public function upperCase($type = "all") 
@@ -88,20 +87,12 @@ class Text
 
     public function reverse() 
     { 
-        $len = strlen($this->text);
-		$tmp = "";
-		
-		for( $i = $len - 1; $i >= 0; $i-- )
-		{
-			$tmp .= $this->text{$i};
-		}
-		
-		$this->text = $tmp;
+        $this->text = strrev($this->text);
     } 
 
     public function combine($txt) 
     { 
-        $this->text = $this->text . $txt; 
+        $this->text .= $txt; 
     } 
 
     public function contains($txt) 
@@ -144,16 +135,10 @@ class Text
 
     public function characters() 
     { 
-        $len = strlen($this->text);
-		$rtn;
-		
-		for( $i = 0; $i < $len; $i++)
-		{
-			$rtn[$i] = $this->text{$i};
-		} 
-		
-		return $rtn;
+	    
+        return ((!is_null($this->text) || $this-> != "") ? str_split($this->text) : -1);
     } 
+	
     public function slim($chars = null) 
     { 
         if(is_null($chars) || $chars != "") 
